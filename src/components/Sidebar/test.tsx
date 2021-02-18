@@ -1,16 +1,15 @@
 import { render, screen } from '@testing-library/react';
 
-import Main from '.';
+import Sidebar from '.';
 
-describe('<Main />', () => {
+describe('<Sidebar />', () => {
   it('should render the heading', () => {
-    const { container } = render(<Main />);
+    const { container } = render(<Sidebar />);
 
     expect(
-      screen.getByRole('heading', { name: /app name/i })
+      screen.getByRole('heading', { name: /Sidebar/i })
     ).toBeInTheDocument();
 
-    // Snapshot
     expect(container.firstChild).toMatchSnapshot();
   });
 });
