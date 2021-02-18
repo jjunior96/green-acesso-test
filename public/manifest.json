@@ -1,21 +1,21 @@
 {
-  "name": "App name",
-  "short_name": "APP",
+  "name": "Green Acesso",
+  "short_name": "Green Acesso",
   "icons": [
     {
-      "src": "/img/bg.png",
+      "src": "/img/icon192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/img/bg.png",
+      "src": "/img/icon512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "background_color": "#0c0f16",
-  "description": "App PWA",
+  "background_color": "#15bf52",
+  "description": "Green Acesso PWA",
   "display": "fullscreen",
   "start_url": "/",
-  "theme_color": "#0c0f16"
+  "theme_color": "#15bf52"
 }

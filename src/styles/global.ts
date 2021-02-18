@@ -37,10 +37,6 @@ const GlobalStyles = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* html, body, #__next {
-    height: 100%;
-  } */
-
   ${({ theme }) => css`
     html {
       font-size: 62.5%;
@@ -49,7 +45,7 @@ const GlobalStyles = createGlobalStyle`
     body {
       font-family: ${theme.font.family};
       font-size: ${theme.font.sizes.medium};
-      background-color: #0c0f16;
+      background-color: #f4f5f9;
       -webkit-font-smoothing: antialiased !important;
     }
   `}
