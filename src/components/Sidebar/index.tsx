@@ -2,7 +2,9 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { BsPerson } from 'react-icons/bs';
-import { BiLineChart, BiMessage } from 'react-icons/bi';
+import { BiLineChart, BiMessage, BiHelpCircle } from 'react-icons/bi';
+import { AiFillSetting } from 'react-icons/ai';
+import { RiLogoutBoxRLine } from 'react-icons/ri';
 
 import { SidebarData } from './data';
 import * as S from './styles';
@@ -41,6 +43,23 @@ const Sidebar = () => {
           Avisos
         </S.MenuTitle>
       </S.MenuContainer>
+
+      <S.Settings>
+        <S.MenuContainer>
+          <S.MenuTitle>
+            <AiFillSetting />
+            Configurações
+          </S.MenuTitle>
+          <S.MenuTitle>
+            <BiHelpCircle />
+            Ajuda
+          </S.MenuTitle>
+          <S.MenuTitle>
+            <RiLogoutBoxRLine />
+            Sair
+          </S.MenuTitle>
+        </S.MenuContainer>
+      </S.Settings>
     </S.Container>
   );
 };
