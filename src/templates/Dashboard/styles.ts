@@ -1,19 +1,31 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { Form } from '@unform/web';
 
 export const Container = styled.div`
   width: 100%;
-  z-index: 1;
 `;
 
 export const Content = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-
-  form {
+  ${({ theme }) => css`
     width: 100%;
+    max-width: ${theme.grid.container};
     display: flex;
-    align-items: center;
-  }
+    flex-direction: column;
+    margin: 0 auto;
+  `}
+`;
+
+export const FormContainer = styled(Form)`
+  ${({ theme }) => css`
+    display: flex;
+
+    div {
+      flex: 1;
+    }
+
+    button {
+      width: 6rem;
+      margin-left: ${theme.spacings.xsmall};
+    }
+  `}
 `;

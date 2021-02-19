@@ -37,6 +37,8 @@ export const Container = styled.aside`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  justify-content: space-between;
 `;
 
 export const MenuContainer = styled.ul`
@@ -84,7 +86,7 @@ export const MenuTitle = styled.li`
     display: flex;
     align-items: center;
     font-weight: ${theme.font.bold};
-    font-size: ${theme.font.sizes.xlarge};
+    font-size: ${theme.font.sizes.large};
     margin-bottom: ${theme.spacings.small};
 
     &:first-child {
@@ -128,4 +130,8 @@ export const Logo = styled.div`
   `}
 `;
 
-export const Settings = styled.div``;
+export const Settings = styled.div`
+  ${({ theme }) => css`
+    margin-bottom: ${theme.spacings.xxlarge};
+  `}
+`;

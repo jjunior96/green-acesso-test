@@ -1,14 +1,11 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const Title = styled.h1`
-  font-weight: bold;
-  font-size: 2.8rem;
-  max-width: 680px;
-
-  strong,
-  span {
-    font-weight: bold;
-  }
+  ${({ theme }) => css`
+    font-weight: ${theme.font.bold};
+    font-size: ${theme.font.sizes.xxlarge};
+    max-width: 680px;
+  `}
 `;
 
 export default Title;
