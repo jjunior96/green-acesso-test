@@ -1,10 +1,13 @@
 export default {
   grid: {
-    container: '130rem',
+    container: '140rem',
     gutter: '3.2rem'
   },
   border: {
     radius: '1.2rem'
+  },
+  box: {
+    shadow: '0 8px 8px #eee'
   },
   font: {
     family:
@@ -27,11 +30,13 @@ export default {
     secondary: '#f1f2f7',
     buttonSearch: '#79dab6',
     primaryTitle: '#2f445e',
-    secundaryTitle: '#e1974d',
+    secundaryTitle: '#eea258',
     otherTitle: '#6363df',
-    purple: '#6363df',
-    blackTitle: '#2f445e',
+    purple: '#a1a1f8',
+    darkText: '#293e59',
     white: '#fff',
+    lightGray: '#F1F2F0',
+    mediumGray: '#4e6177',
     black: '#070707'
   },
   spacings: {
@@ -42,16 +47,5 @@ export default {
     large: '4.0rem',
     xlarge: '4.8rem',
     xxlarge: '5.6rem'
-  },
-  layers: {
-    base: 10,
-    menu: 20,
-    overlay: 30,
-    modal: 40,
-    alwaysOnTop: 50
-  },
-  transition: {
-    default: '0.3s ease-in-out',
-    fast: '0.1s ease-in-out'
   }
 } as const;

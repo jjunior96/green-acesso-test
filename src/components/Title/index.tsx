@@ -5,6 +5,8 @@ const Title = styled.h1`
     font-weight: ${theme.font.bold};
     font-size: ${theme.font.sizes.xxlarge};
     max-width: 680px;
+    color: ${theme.colors.darkText};
+    margin: ${theme.spacings.medium} 0;
   `}
 `;
 
