@@ -24,18 +24,18 @@ export default {
   },
   colors: {
     primary: '#15bf52',
-    secondary: '',
-    mainBg: '',
-    lightBg: '',
-    white: '',
-    black: '',
-    lightGray: '',
-    gray: '',
-    darkGray: '',
-    red: ''
+    secondary: '#f1f2f7',
+    buttonSearch: '#79dab6',
+    primaryTitle: '#2f445e',
+    secundaryTitle: '#e1974d',
+    otherTitle: '#6363df',
+    purple: '#6363df',
+    blackTitle: '#2f445e',
+    white: '#fff',
+    black: '#070707'
   },
   spacings: {
-    xxsmall: '0.8rem',
+    xxsmall: '1rem',
     xsmall: '1.6rem',
     small: '2.4rem',
     medium: '3.2rem',

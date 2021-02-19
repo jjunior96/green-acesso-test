@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { BsPerson } from 'react-icons/bs';
+import { BiLineChart, BiMessage } from 'react-icons/bi';
 
 import { SidebarData } from './data';
 import * as S from './styles';
 
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(true);
-
   return (
-    <S.Container isOpen={isOpen}>
+    <S.Container>
       <S.Logo>
         <Link href="/">
           <a>
@@ -18,17 +18,29 @@ const Sidebar = () => {
           </a>
         </Link>
       </S.Logo>
-      <ul>
+      <S.MenuContainer>
+        <S.MenuTitle>
+          <BsPerson />
+          Cadastros
+        </S.MenuTitle>
         {SidebarData.map((item) => (
-          <li key={item.path}>
+          <S.MenuItem key={item.path}>
             <Link href={item.path}>
               <a>
-                <p>{item.title}</p>
+                <p> - {item.title}</p>
               </a>
             </Link>
-          </li>
+          </S.MenuItem>
         ))}
-      </ul>
+        <S.MenuTitle>
+          <BiLineChart />
+          Relatórios
+        </S.MenuTitle>
+        <S.MenuTitle>
+          <BiMessage />
+          Avisos
+        </S.MenuTitle>
+      </S.MenuContainer>
     </S.Container>
   );
 };
