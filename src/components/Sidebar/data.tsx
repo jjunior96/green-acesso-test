@@ -5,10 +5,6 @@ export interface SideBarProps {
 
 export const SidebarData: SideBarProps[] = [
   {
-    title: 'Pessoas',
-    path: '/peoples'
-  },
-  {
     title: 'Equipamentos',
     path: '/equipaments'
   },

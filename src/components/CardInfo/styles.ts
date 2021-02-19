@@ -2,8 +2,6 @@ import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   ${({ theme }) => css`
-    width: 100%;
-    max-width: 30rem;
     padding: ${theme.spacings.xsmall};
     background-color: ${theme.colors.white};
     border-radius: ${theme.border.radius};
@@ -21,6 +19,7 @@ export const Title = styled.h2`
     font-weight: ${theme.font.bold};
     color: ${theme.colors.secundaryTitle};
     margin-bottom: ${theme.spacings.xxsmall};
+    text-transform: uppercase;
 
     p + & {
       margin-top: ${theme.spacings.xxsmall};
@@ -31,6 +30,7 @@ export const Title = styled.h2`
 export const InfoItem = styled.p`
   ${({ theme }) => css`
     font-size: ${theme.font.sizes.small};
+    color: ${theme.colors.mediumGray};
     line-height: 2rem;
     overflow: hidden;
     text-overflow: ellipsis;

@@ -10,6 +10,6 @@ export const Container = styled.div`
     position: relative;
 
     background-color: ${theme.colors.secondary};
-    padding: ${theme.spacings.small};
+    padding: ${theme.spacings.medium};
   `}
 `;

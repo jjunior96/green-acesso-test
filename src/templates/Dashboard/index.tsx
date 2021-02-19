@@ -6,9 +6,11 @@ import Sidebar from 'components/Sidebar';
 import Main from 'components/Main';
 import Input from 'components/Input';
 import Button from 'components/Button';
-import Title from 'components/Title';
 import CardInfo from 'components/CardInfo';
 import ActionBar from 'components/ActionBar';
+import ProfileCard from 'components/ProfileCard';
+import Header from 'components/Header';
+import Table from 'components/TableContent';
 import api from 'services/api';
 
 import * as S from './styles';
@@ -33,21 +35,28 @@ const Dashboard: React.FC = () => {
       <Sidebar />
       <Main>
         <S.Content>
-          <Title>Cadastro -{'>'} Pessoas</Title>
-          <S.FormContainer onSubmit={handleSubmit} ref={formRef}>
-            <Input
-              name="search"
-              type="text"
-              value={searchPeople}
-              onChange={(e) => setSearchPeople(e.target.value)}
-              placeholder="Pesquisar pelo nome ou CPF..."
-            />
-            <Button type="submit">
-              <BiSearch />
-            </Button>
-          </S.FormContainer>
-          <ActionBar />
-          <CardInfo />
+          <S.PrimaryInfo>
+            <Header> Cadastro -{'>'} Pessoas </Header>
+            <S.FormContainer onSubmit={handleSubmit} ref={formRef}>
+              <Input
+                name="search"
+                type="text"
+                value={searchPeople}
+                onChange={(e) => setSearchPeople(e.target.value)}
+                placeholder="Pesquisar pelo nome ou CPF..."
+              />
+              <Button type="submit">
+                <BiSearch />
+              </Button>
+            </S.FormContainer>
+            <ActionBar />
+            <Table />
+          </S.PrimaryInfo>
+          <S.Notifications>
+            <ProfileCard />
+            <CardInfo />
+            <CardInfo />
+          </S.Notifications>
         </S.Content>
       </Main>
     </S.Container>

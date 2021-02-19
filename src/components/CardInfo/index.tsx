@@ -9,9 +9,12 @@ const CardInfo = () => {
         <S.InfoItem>asasasas</S.InfoItem>
         <S.InfoItem>asasasas</S.InfoItem>
         <S.InfoItem>asasasas</S.InfoItem>
+        <S.InfoItem>asasasas</S.InfoItem>
 
-        <S.Title>Esporádicos</S.Title>
+        <S.Title>Pessoas no Condomínio</S.Title>
         <S.InfoItem>asasasasasasasasasasaasasasasasasasassas</S.InfoItem>
+        <S.InfoItem>asasasas</S.InfoItem>
+        <S.InfoItem>asasasas</S.InfoItem>
         <S.InfoItem>asasasas</S.InfoItem>
         <S.InfoItem>asasasas</S.InfoItem>
         <S.InfoItem>asasasas</S.InfoItem>

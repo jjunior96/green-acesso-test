@@ -3,7 +3,8 @@ import styled, { css } from 'styled-components';
 export const Container = styled.div`
   ${({ theme }) => css`
     width: 100%;
-    margin: ${theme.spacings.xsmall} 0;
+    margin-top: ${theme.spacings.xsmall};
+    margin-bottom: ${theme.spacings.medium};
     border-radius: ${theme.border.radius};
     box-shadow: ${theme.box.shadow};
     background-color: ${theme.colors.white};
@@ -38,13 +39,13 @@ export const ActionItem = styled.li`
 
     svg {
       font-size: 3rem;
-      color: ${theme.colors.black};
+      color: ${theme.colors.darkText};
       margin-bottom: 0.4rem;
     }
 
     p {
       font-size: ${theme.font.sizes.xsmall};
-      color: ${theme.colors.black};
+      color: ${theme.colors.darkText};
     }
 
     &:hover {
