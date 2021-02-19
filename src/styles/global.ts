@@ -45,7 +45,7 @@ const GlobalStyles = createGlobalStyle`
     body {
       font-family: ${theme.font.family};
       font-size: ${theme.font.sizes.medium};
-      background-color: #15bf52;
+      background-color: ${theme.colors.primary};
       -webkit-font-smoothing: antialiased !important;
     }
   `}
