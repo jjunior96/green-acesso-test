@@ -6,4 +6,4 @@ export default {
   component: CardCount
 } as Meta;
 
-export const Default: Story = () => <CardCount />;
+export const Default: Story = () => <CardCount total={12} />;

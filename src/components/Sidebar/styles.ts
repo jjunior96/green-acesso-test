@@ -1,6 +1,10 @@
 import styled, { css, keyframes } from 'styled-components';
 import { shade } from 'polished';
 
+type MenuOpenProps = {
+  isOpen: boolean;
+};
+
 const listAnimation = keyframes`
   from {
     opacity: 0;
@@ -17,6 +21,18 @@ const logoAnimation = keyframes`
   from {
     opacity: 0;
     transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+const menuAnimationOpen = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
   }
 
   to {
@@ -48,11 +64,12 @@ export const MenuContainer = styled.ul`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  width: 100%;
 
   animation: ${listAnimation} 0.6s;
 `;
 
-export const MenuItem = styled.li`
+export const MenuItem = styled.li<MenuOpenProps>`
   ${({ theme }) => css`
     list-style: none;
     cursor: pointer;
@@ -61,13 +78,17 @@ export const MenuItem = styled.li`
       margin-top: ${theme.spacings.xxsmall};
     }
 
+    &:first-child + li {
+      margin-top: 0;
+    }
+
     a {
       color: ${theme.colors.white};
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      border-radius: ${theme.border.radius};
       padding: 0.8rem 1.4rem;
+      border-radius: ${theme.border.radius};
       transition: background-color 0.4s;
       text-decoration: none;
 
@@ -80,6 +101,22 @@ export const MenuItem = styled.li`
       }
     }
   `}
+
+  ${(props) =>
+    props.isOpen &&
+    css`
+      display: block;
+      visibility: visible;
+
+      animation: ${menuAnimationOpen} 0.5s;
+    `}
+
+    ${(props) =>
+    !props.isOpen &&
+    css`
+      display: none;
+      visibility: hidden;
+    `}
 `;
 
 export const MenuTitle = styled.li`
@@ -89,15 +126,19 @@ export const MenuTitle = styled.li`
     align-items: center;
     font-weight: ${theme.font.bold};
     font-size: ${theme.font.sizes.large};
-    margin-bottom: ${theme.spacings.small};
-
-    &:first-child {
-      /* margin-bottom: ${theme.spacings.xxsmall}; */
-    }
+    margin-bottom: ${theme.spacings.xxsmall};
+    border-radius: ${theme.border.radius};
+    transition: background-color 0.4s;
+    cursor: pointer;
+    padding: 1rem;
 
     svg {
       margin-right: ${theme.spacings.xxsmall};
       font-size: 2.2rem;
+    }
+
+    &:hover {
+      background-color: ${shade(0.2, theme.colors.primary)};
     }
   `}
 `;
