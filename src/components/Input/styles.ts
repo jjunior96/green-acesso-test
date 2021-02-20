@@ -36,7 +36,7 @@ export const Container = styled.div<ContainerProps>`
       }
 
       &::placeholder {
-        color: #525c6d;
+        color: ${theme.colors.mediumGray};
       }
     }
 

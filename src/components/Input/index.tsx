@@ -41,7 +41,12 @@ const Input: React.FC<InputProps> = ({ name, icon: Icon, ...rest }) => {
   }, [fieldName, registerField]);
 
   return (
-    <Container isErrored={!!error} isFilled={isFilled} isFocused={isFocused}>
+    <Container
+      isErrored={!!error}
+      isFilled={isFilled}
+      isFocused={isFocused}
+      aria-label="digite um usuario"
+    >
       {Icon && <Icon size={20} />}
       <input
         onFocus={handleInputFocus}
