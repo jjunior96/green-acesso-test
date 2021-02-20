@@ -1,6 +1,20 @@
-import { createGlobalStyle, css } from 'styled-components';
+// import { createGlobalStyle, css } from 'styled-components';
 
-const GlobalStyles = createGlobalStyle`
+import {
+  createGlobalStyle,
+  css,
+  DefaultTheme,
+  GlobalStyleComponent
+} from 'styled-components';
+
+type GlobalStylesProps = {
+  removeBg?: boolean;
+};
+
+const GlobalStyles: GlobalStyleComponent<
+  GlobalStylesProps,
+  DefaultTheme
+> = createGlobalStyle`
   @font-face {
     font-family: 'Montserrat';
     font-style: normal;
@@ -35,6 +49,11 @@ const GlobalStyles = createGlobalStyle`
     outline: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    &::before,
+    &::after {
+      box-sizing: inherit;
+    }
   }
 
   ${({ theme }) => css`
