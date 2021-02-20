@@ -8,7 +8,12 @@ export const Container = styled.section`
     border-radius: ${theme.border.radius};
     box-shadow: ${theme.box.shadow};
     margin-bottom: ${theme.spacings.xsmall};
-    overflow: hidden;
+    overflow: auto;
+    max-height: calc(100vh - 38rem);
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   `}
 `;
 
@@ -44,7 +49,7 @@ export const Place = styled.p`
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    flex: 30%;
+    flex: 40%;
 
     & + p {
       margin-left: ${theme.spacings.small};
@@ -68,5 +73,5 @@ export const Email = styled(Place)`
 `;
 
 export const Address = styled(Place)`
-  flex: 25%;
+  flex: 15%;
 `;

@@ -1,15 +1,15 @@
-import { render, screen } from '@testing-library/react';
-
+import { screen } from '@testing-library/react';
+import { renderWithTheme } from 'utils/tests/helpers';
 import TableContent from '.';
 
-describe('<TableContent />', () => {
-  it('should render the heading', () => {
-    const { container } = render(<TableContent />);
+import mock from './mock';
 
-    expect(
-      screen.getByRole('heading', { name: /TableContent/i })
-    ).toBeInTheDocument();
+describe('TableContent', () => {
+  it('should render TableContent component', () => {
+    renderWithTheme(<TableContent infos={mock} />);
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(screen.getByLabelText(/resultados da busca/i)).toHaveStyle({
+      overflow: 'auto'
+    });
   });
 });
