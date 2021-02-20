@@ -1,6 +1,16 @@
 import styled, { css, keyframes } from 'styled-components';
 import { Form } from '@unform/web';
 
+const loadingAnimation = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
 export const Container = styled.div`
   width: 100%;
   display: flex;
@@ -47,15 +57,9 @@ export const Notifications = styled.section`
     max-width: 28rem;
     gap: ${theme.spacings.medium};
   `}
-`;
 
-const loadingAnimation = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
+  @media (max-width: 1200px) {
+    display: none;
   }
 `;
 

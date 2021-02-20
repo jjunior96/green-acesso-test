@@ -23,20 +23,6 @@ const Dashboard: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [inputError, setInputError] = useState('');
 
-  useEffect(() => {
-    const getData = async () => {
-      setIsLoading(true);
-      const response = await api.get(`/users`);
-
-      const repository = response.data;
-
-      setRepositories([repository]);
-      setIsLoading(false);
-    };
-
-    getData();
-  }, []);
-
   const handleSubmit = useCallback(
     async (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault;
@@ -49,12 +35,11 @@ const Dashboard: React.FC = () => {
       try {
         setInputError('');
         setIsLoading(true);
-        const response = await api.get(`users/${search}/repos`);
+        const response = await api.get<InfoProps>(`users/${search}/repos`);
 
         const repository = response.data;
 
         setRepositories([repository]);
-        console.log(repository[0].id);
 
         setIsLoading(false);
       } catch (err) {
@@ -64,6 +49,14 @@ const Dashboard: React.FC = () => {
     },
     [search]
   );
+
+  useEffect(() => {
+    setIsLoading(true);
+
+    api.get(`/users`).then((response) => setRepositories([response.data]));
+
+    setIsLoading(false);
+  }, []);
 
   return (
     <S.Container>
@@ -94,16 +87,14 @@ const Dashboard: React.FC = () => {
               </S.Loading>
             ) : (
               repositories.map((repository) => (
-                <>
-                  <Table key={repository.id} infos={repository} />
-                </>
+                <Table key={repository.id} info={repository} />
               ))
             )}
           </S.PrimaryInfo>
           <S.Notifications>
             <ProfileCard />
-            <CardInfo />
-            <CardInfo />
+            <CardInfo color="secundaryTitle" />
+            <CardInfo color="otherTitle" />
           </S.Notifications>
         </S.Content>
       </Main>
