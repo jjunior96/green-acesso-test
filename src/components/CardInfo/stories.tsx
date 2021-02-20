@@ -6,4 +6,4 @@ export default {
   component: CardInfo
 } as Meta;
 
-export const Default: Story = () => <CardInfo />;
+export const Default: Story = () => <CardInfo color="otherTitle" />;
