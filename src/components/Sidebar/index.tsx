@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { BsPerson } from 'react-icons/bs';
@@ -11,55 +10,55 @@ import * as S from './styles';
 
 const Sidebar = () => {
   return (
-    <S.Container>
-      <S.Logo>
-        <Link href="/">
-          <a>
-            <Image src="/assets/logo.png" width={100} height={100} />
-            <p>Green Acesso</p>
-          </a>
-        </Link>
-      </S.Logo>
-      <S.MenuContainer>
-        <S.MenuTitle>
-          <BsPerson />
-          Cadastros
-        </S.MenuTitle>
-        {SidebarData.map((item) => (
-          <S.MenuItem key={item.path}>
-            <Link href={item.path}>
-              <a>
-                <p> - {item.title}</p>
-              </a>
-            </Link>
-          </S.MenuItem>
-        ))}
-        <S.MenuTitle>
-          <BiLineChart />
-          Relatórios
-        </S.MenuTitle>
-        <S.MenuTitle>
-          <BiMessage />
-          Avisos
-        </S.MenuTitle>
-      </S.MenuContainer>
-
-      <S.Settings>
+    <S.Container aria-label="sidebar">
+      <S.Content>
+        <S.Logo>
+          <Link href="/">
+            <a>
+              <Image src="/assets/logo.png" width={100} height={100} />
+              <p>Green Acesso</p>
+            </a>
+          </Link>
+        </S.Logo>
         <S.MenuContainer>
           <S.MenuTitle>
-            <AiFillSetting />
-            Configurações
+            <BsPerson />
+            Cadastros
+          </S.MenuTitle>
+          {SidebarData.map((item) => (
+            <S.MenuItem key={item.path}>
+              <Link href={item.path}>
+                <a>
+                  <p> - {item.title}</p>
+                </a>
+              </Link>
+            </S.MenuItem>
+          ))}
+          <S.MenuTitle>
+            <BiLineChart />
+            Relatórios
           </S.MenuTitle>
           <S.MenuTitle>
-            <BiHelpCircle />
-            Ajuda
-          </S.MenuTitle>
-          <S.MenuTitle>
-            <RiLogoutBoxRLine />
-            Sair
+            <BiMessage />
+            Avisos
           </S.MenuTitle>
         </S.MenuContainer>
-      </S.Settings>
+      </S.Content>
+
+      <S.MenuContainer>
+        <S.MenuTitle>
+          <AiFillSetting />
+          Configurações
+        </S.MenuTitle>
+        <S.MenuTitle>
+          <BiHelpCircle />
+          Ajuda
+        </S.MenuTitle>
+        <S.MenuTitle>
+          <RiLogoutBoxRLine />
+          Sair
+        </S.MenuTitle>
+      </S.MenuContainer>
     </S.Container>
   );
 };

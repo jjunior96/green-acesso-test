@@ -41,6 +41,8 @@ export const Container = styled.aside`
   justify-content: space-between;
 `;
 
+export const Content = styled.div``;
+
 export const MenuContainer = styled.ul`
   padding: 2rem 1.6rem;
   margin: 0 auto;
@@ -90,7 +92,7 @@ export const MenuTitle = styled.li`
     margin-bottom: ${theme.spacings.small};
 
     &:first-child {
-      margin-bottom: ${theme.spacings.xxsmall};
+      /* margin-bottom: ${theme.spacings.xxsmall}; */
     }
 
     svg {
