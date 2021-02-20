@@ -12,14 +12,14 @@ export interface InfoProps {
 }
 
 interface TableProps {
-  infos: InfoProps[];
+  info: InfoProps[];
 }
 
-const TableContent = ({ infos }: TableProps) => {
+const TableContent: React.FC<TableProps> = ({ info }) => {
   return (
     <>
       <S.Container aria-label="resultados da busca">
-        {infos.map((item) => (
+        {info.map((item) => (
           <S.Line key={item.id}>
             <S.Place>{item.login}</S.Place>
             <S.Code>{item.node_id}</S.Code>
@@ -29,7 +29,7 @@ const TableContent = ({ infos }: TableProps) => {
           </S.Line>
         ))}
       </S.Container>
-      <CardCount total={infos.length} />
+      <CardCount total={info.length} />
     </>
   );
 };

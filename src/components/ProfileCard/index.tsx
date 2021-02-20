@@ -10,7 +10,7 @@ const ProfileCard = () => {
     <S.Container>
       <S.Content>
         <S.ProfilePhoto>
-          <img src="/assets/profile.png" alt="" />
+          <img src="/assets/profile.png" alt="Foto de perfil" />
         </S.ProfilePhoto>
 
         <Link href="/">Sair</Link>
