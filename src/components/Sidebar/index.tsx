@@ -1,14 +1,17 @@
+import { useCallback, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { BsPerson } from 'react-icons/bs';
-import { BiLineChart, BiMessage, BiHelpCircle } from 'react-icons/bi';
-import { AiFillSetting } from 'react-icons/ai';
-import { RiLogoutBoxRLine } from 'react-icons/ri';
 
-import { SidebarData } from './data';
+import { SidebarData, SettingsData } from './data';
 import * as S from './styles';
 
 const Sidebar = () => {
+  const [menuOpen, setMenuOpen] = useState(true);
+
+  const handleOpenMenu = useCallback(() => {
+    setMenuOpen(!menuOpen);
+  }, [menuOpen]);
+
   return (
     <S.Container aria-label="sidebar">
       <S.Content>
@@ -21,43 +24,33 @@ const Sidebar = () => {
           </Link>
         </S.Logo>
         <S.MenuContainer>
-          <S.MenuTitle>
-            <BsPerson />
-            Cadastros
-          </S.MenuTitle>
           {SidebarData.map((item) => (
-            <S.MenuItem key={item.path}>
-              <Link href={item.path}>
-                <a>
-                  <p> - {item.title}</p>
-                </a>
-              </Link>
-            </S.MenuItem>
+            <>
+              <S.MenuTitle key={item.id} onClick={handleOpenMenu}>
+                {item.icon}
+                {item.name}
+              </S.MenuTitle>
+              {item.children?.map((subItem) => (
+                <S.MenuItem isOpen={menuOpen} key={subItem.id}>
+                  <Link href={subItem.path}>
+                    <a>
+                      <p> - {subItem.title}</p>
+                    </a>
+                  </Link>
+                </S.MenuItem>
+              ))}
+            </>
           ))}
-          <S.MenuTitle>
-            <BiLineChart />
-            Relatórios
-          </S.MenuTitle>
-          <S.MenuTitle>
-            <BiMessage />
-            Avisos
-          </S.MenuTitle>
         </S.MenuContainer>
       </S.Content>
 
       <S.MenuContainer>
-        <S.MenuTitle>
-          <AiFillSetting />
-          Configurações
-        </S.MenuTitle>
-        <S.MenuTitle>
-          <BiHelpCircle />
-          Ajuda
-        </S.MenuTitle>
-        <S.MenuTitle>
-          <RiLogoutBoxRLine />
-          Sair
-        </S.MenuTitle>
+        {SettingsData.map((itemMenu) => (
+          <S.MenuTitle key={itemMenu.id}>
+            {itemMenu.icon}
+            {itemMenu.name}
+          </S.MenuTitle>
+        ))}
       </S.MenuContainer>
     </S.Container>
   );

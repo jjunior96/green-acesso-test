@@ -1,35 +1,88 @@
+import { BsPerson } from 'react-icons/bs';
+import { BiLineChart, BiMessage, BiHelpCircle } from 'react-icons/bi';
+
+import { AiFillSetting } from 'react-icons/ai';
+import { RiLogoutBoxRLine } from 'react-icons/ri';
+
 export interface SideBarProps {
   title: string;
   path: string;
 }
 
-export const SidebarData: SideBarProps[] = [
+export const SidebarData = [
   {
-    title: 'Equipamentos',
-    path: '/equipaments'
+    id: '1',
+    name: 'Cadastros',
+    icon: <BsPerson />,
+    children: [
+      {
+        id: '10',
+        title: 'Pessoas',
+        path: '/peoples'
+      },
+      {
+        id: '11',
+        title: 'Equipamentos',
+        path: '/equipaments'
+      },
+      {
+        id: '12',
+        title: 'Grupos',
+        path: '/groups'
+      },
+      {
+        id: '13',
+        title: 'Áreas',
+        path: '/areas'
+      },
+      {
+        id: '14',
+        title: 'Unidades',
+        path: '/unities'
+      },
+      {
+        id: '15',
+        title: 'Livro de Lotes',
+        path: '/book'
+      },
+      {
+        id: '16',
+        title: 'Senhas do App',
+        path: '/passwords'
+      },
+      {
+        id: '17',
+        title: 'Operadores',
+        path: '/analytics'
+      }
+    ]
   },
   {
-    title: 'Grupos',
-    path: '/groups'
+    id: '2',
+    name: 'Relatórios',
+    icon: <BiLineChart />
   },
   {
-    title: 'Áreas',
-    path: '/areas'
+    id: '3',
+    name: 'Avisos',
+    icon: <BiMessage />
+  }
+];
+
+export const SettingsData = [
+  {
+    id: '1',
+    name: 'Configurações',
+    icon: <AiFillSetting />
   },
   {
-    title: 'Unidades',
-    path: '/unities'
+    id: '2',
+    name: 'Ajuda',
+    icon: <BiHelpCircle />
   },
   {
-    title: 'Livro de Lotes',
-    path: '/book'
-  },
-  {
-    title: 'Senhas do App',
-    path: '/passwords'
-  },
-  {
-    title: 'Operadores',
-    path: '/analytics'
+    id: '3',
+    name: 'Sair',
+    icon: <RiLogoutBoxRLine />
   }
 ];
