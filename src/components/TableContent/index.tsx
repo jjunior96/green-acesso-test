@@ -2,91 +2,34 @@ import CardCount from 'components/CardCount';
 
 import * as S from './styles';
 
-const TableContent = () => {
+export interface InfoProps {
+  id: number;
+  login: string;
+  node_id: string;
+  type: string;
+  html_url: string;
+  url: string;
+}
+
+interface TableProps {
+  infos: InfoProps[];
+}
+
+const TableContent = ({ infos }: TableProps) => {
   return (
     <>
-      <S.Container>
-        <S.Line>
-          <S.Place>MOJONBO</S.Place>
-          <S.Code>MDASVAASADF=</S.Code>
-          <S.Phone>(62)92929421</S.Phone>
-          <S.Email>email@email.com</S.Email>
-          <S.Address>Rua Luciano Carneiro Qd. 04 Lt. 01</S.Address>
-        </S.Line>
-
-        <S.Line>
-          <S.Place>MOJONBO</S.Place>
-          <S.Code>MDASVAASADF=</S.Code>
-          <S.Phone>(62)92929421</S.Phone>
-          <S.Email>email@email.com</S.Email>
-          <S.Address>Rua Luciano Carneiro Qd. 04 Lt. 01</S.Address>
-        </S.Line>
-
-        <S.Line>
-          <S.Place>MOJONBO</S.Place>
-          <S.Code>MDASVAASADF=</S.Code>
-          <S.Phone>(62)92929421</S.Phone>
-          <S.Email>email@email.com</S.Email>
-          <S.Address>Rua Luciano Carneiro Qd. 04 Lt. 01</S.Address>
-        </S.Line>
-
-        <S.Line>
-          <S.Place>MOJONBO</S.Place>
-          <S.Code>MDASVAASADF=</S.Code>
-          <S.Phone>(62)92929421</S.Phone>
-          <S.Email>email@email.com</S.Email>
-          <S.Address>Rua Luciano Carneiro Qd. 04 Lt. 01</S.Address>
-        </S.Line>
-
-        <S.Line>
-          <S.Place>MOJONBO</S.Place>
-          <S.Code>MDASVAASADF=</S.Code>
-          <S.Phone>(62)92929421</S.Phone>
-          <S.Email>email@email.com</S.Email>
-          <S.Address>Rua Luciano Carneiro Qd. 04 Lt. 01</S.Address>
-        </S.Line>
-
-        <S.Line>
-          <S.Place>MOJONBO</S.Place>
-          <S.Code>MDASVAASADF=</S.Code>
-          <S.Phone>(62)92929421</S.Phone>
-          <S.Email>email@email.com</S.Email>
-          <S.Address>Rua Luciano Carneiro Qd. 04 Lt. 01</S.Address>
-        </S.Line>
-
-        <S.Line>
-          <S.Place>MOJONBO</S.Place>
-          <S.Code>MDASVAASADF=</S.Code>
-          <S.Phone>(62)92929421</S.Phone>
-          <S.Email>email@email.com</S.Email>
-          <S.Address>Rua Luciano Carneiro Qd. 04 Lt. 01</S.Address>
-        </S.Line>
-
-        <S.Line>
-          <S.Place>MOJONBO</S.Place>
-          <S.Code>MDASVAASADF=</S.Code>
-          <S.Phone>(62)92929421</S.Phone>
-          <S.Email>email@email.com</S.Email>
-          <S.Address>Rua Luciano Carneiro Qd. 04 Lt. 01</S.Address>
-        </S.Line>
-
-        <S.Line>
-          <S.Place>MOJONBO</S.Place>
-          <S.Code>MDASVAASADF=</S.Code>
-          <S.Phone>(62)92929421</S.Phone>
-          <S.Email>email@email.com</S.Email>
-          <S.Address>Rua Luciano Carneiro Qd. 04 Lt. 01</S.Address>
-        </S.Line>
-
-        <S.Line>
-          <S.Place>MOJONBO</S.Place>
-          <S.Code>MDASVAASADF=</S.Code>
-          <S.Phone>(62)92929421</S.Phone>
-          <S.Email>email@email.com</S.Email>
-          <S.Address>Rua Luciano Carneiro Qd. 04 Lt. 01</S.Address>
-        </S.Line>
+      <S.Container aria-label="resultados da busca">
+        {infos.map((item) => (
+          <S.Line key={item.id}>
+            <S.Place>{item.login}</S.Place>
+            <S.Code>{item.node_id}</S.Code>
+            <S.Phone>{item.type}</S.Phone>
+            <S.Email>{item.url}</S.Email>
+            <S.Address>{item.html_url}</S.Address>
+          </S.Line>
+        ))}
       </S.Container>
-      <CardCount />
+      <CardCount total={infos.length} />
     </>
   );
 };

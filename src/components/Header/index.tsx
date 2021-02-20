@@ -3,7 +3,7 @@ import * as S from './styles';
 
 const Header: React.FC = ({ children }) => {
   return (
-    <S.Container>
+    <S.Container aria-label="header">
       <Title>{children}</Title>
       <S.Content>
         <S.Info>

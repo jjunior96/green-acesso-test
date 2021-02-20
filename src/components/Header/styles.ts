@@ -1,12 +1,10 @@
 import styled, { css } from 'styled-components';
 
 export const Container = styled.header`
-  ${({ theme }) => css`
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  `}
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const Content = styled.div`

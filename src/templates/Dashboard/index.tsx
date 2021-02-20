@@ -1,6 +1,7 @@
-import { FormEvent, useCallback, useRef, useState } from 'react';
+import { FormEvent, useCallback, useEffect, useRef, useState } from 'react';
 import { FormHandles } from '@unform/core';
-import { BiSearch } from 'react-icons/bi';
+import { BiSearch as SearchIcon } from 'react-icons/bi';
+import { VscLoading as LoadingIcon } from 'react-icons/vsc';
 
 import Sidebar from 'components/Sidebar';
 import Main from 'components/Main';
@@ -10,24 +11,58 @@ import CardInfo from 'components/CardInfo';
 import ActionBar from 'components/ActionBar';
 import ProfileCard from 'components/ProfileCard';
 import Header from 'components/Header';
-import Table from 'components/TableContent';
+import Table, { InfoProps } from 'components/TableContent';
 import api from 'services/api';
 
 import * as S from './styles';
 
 const Dashboard: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
-  const [searchPeople, setSearchPeople] = useState('');
+  const [search, setSearch] = useState('');
+  const [repositories, setRepositories] = useState<InfoProps[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [inputError, setInputError] = useState('');
+
+  useEffect(() => {
+    const getData = async () => {
+      setIsLoading(true);
+      const response = await api.get(`/users`);
+
+      const repository = response.data;
+
+      setRepositories([repository]);
+      setIsLoading(false);
+    };
+
+    getData();
+  }, []);
 
   const handleSubmit = useCallback(
     async (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault;
 
-      const response = await api.get(`${searchPeople}`);
+      if (!search) {
+        setInputError('Digite um usuário');
+        return;
+      }
 
-      console.log(response);
+      try {
+        setInputError('');
+        setIsLoading(true);
+        const response = await api.get(`users/${search}/repos`);
+
+        const repository = response.data;
+
+        setRepositories([repository]);
+        console.log(repository[0].id);
+
+        setIsLoading(false);
+      } catch (err) {
+        setInputError('Usuário não encontrado');
+        setIsLoading(false);
+      }
     },
-    [searchPeople]
+    [search]
   );
 
   return (
@@ -41,16 +76,29 @@ const Dashboard: React.FC = () => {
               <Input
                 name="search"
                 type="text"
-                value={searchPeople}
-                onChange={(e) => setSearchPeople(e.target.value)}
-                placeholder="Pesquisar pelo nome ou CPF..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Pesquisar por nome de usuário GitHub"
               />
               <Button type="submit">
-                <BiSearch />
+                <SearchIcon />
               </Button>
             </S.FormContainer>
             <ActionBar />
-            <Table />
+
+            {inputError && <S.Error>{inputError}</S.Error>}
+
+            {isLoading ? (
+              <S.Loading>
+                <LoadingIcon />
+              </S.Loading>
+            ) : (
+              repositories.map((repository) => (
+                <>
+                  <Table key={repository.id} infos={repository} />
+                </>
+              ))
+            )}
           </S.PrimaryInfo>
           <S.Notifications>
             <ProfileCard />

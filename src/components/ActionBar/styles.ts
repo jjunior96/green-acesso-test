@@ -8,7 +8,7 @@ export const Container = styled.div`
     border-radius: ${theme.border.radius};
     box-shadow: ${theme.box.shadow};
     background-color: ${theme.colors.white};
-    overflow: hidden;
+    overflow: auto;
   `}
 `;
 
