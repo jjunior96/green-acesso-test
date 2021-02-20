@@ -11,7 +11,7 @@ const ActionBar = () => {
   return (
     <S.Container>
       <S.ActionContainer>
-        <S.ActionItem>
+        <S.ActionItem aria-label="adicionar">
           <RiAddCircleLine />
           <p>Adicionar</p>
         </S.ActionItem>
