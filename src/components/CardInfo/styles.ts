@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
@@ -14,10 +15,10 @@ export const Content = styled.div`
 `;
 
 export const Title = styled.h2`
-  ${({ theme }) => css`
+  ${({ theme, color }) => css`
     font-size: ${theme.font.sizes.medium};
     font-weight: ${theme.font.bold};
-    color: ${theme.colors.secundaryTitle};
+    color: ${theme.colors[color!]};
     margin-bottom: ${theme.spacings.xxsmall};
     text-transform: uppercase;
 
@@ -29,7 +30,7 @@ export const Title = styled.h2`
 
 export const InfoItem = styled.p`
   ${({ theme }) => css`
-    font-size: ${theme.font.sizes.small};
+    font-size: 1.3rem;
     color: ${theme.colors.mediumGray};
     line-height: 2rem;
     overflow: hidden;

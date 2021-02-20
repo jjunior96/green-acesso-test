@@ -1,28 +1,24 @@
+import { CardInfoData } from './data';
+
 import * as S from './styles';
 
-// interface CardInfoProps {
-//   name?: string;
-// }
+interface CardInfoProps {
+  color?: 'secundaryTitle' | 'otherTitle';
+}
 
-const CardInfo = () => {
+const CardInfo: React.FC<CardInfoProps> = ({ color = 'secundaryTitle' }) => {
   return (
     <S.Container>
-      <S.Content>
-        <S.Title aria-label="esporádicos">Esporádicos</S.Title>
-        <S.InfoItem>asasasasasasasasasasaasasasasasasasassas</S.InfoItem>
-        <S.InfoItem>asasasas</S.InfoItem>
-        <S.InfoItem>asasasas</S.InfoItem>
-        <S.InfoItem>asasasas</S.InfoItem>
-        <S.InfoItem>asasasas</S.InfoItem>
-
-        <S.Title>Pessoas no Condomínio</S.Title>
-        <S.InfoItem>asasasasasasasasasasaasasasasasasasassas</S.InfoItem>
-        <S.InfoItem>asasasas</S.InfoItem>
-        <S.InfoItem>asasasas</S.InfoItem>
-        <S.InfoItem>asasasas</S.InfoItem>
-        <S.InfoItem>asasasas</S.InfoItem>
-        <S.InfoItem>asasasas</S.InfoItem>
-      </S.Content>
+      {CardInfoData.map((info) => (
+        <S.Content key={info.id}>
+          <S.Title color={color} aria-label="esporádicos">
+            {info.title}
+          </S.Title>
+          {info.children.map((people) => (
+            <S.InfoItem key={people.name}>{people.name}</S.InfoItem>
+          ))}
+        </S.Content>
+      ))}
     </S.Container>
   );
 };
