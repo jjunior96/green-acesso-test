@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   ${({ theme }) => css`
-    padding: ${theme.spacings.xsmall};
+    padding: ${theme.spacings.xsmall} ${theme.spacings.xsmall} 0;
     background-color: ${theme.colors.white};
     border-radius: ${theme.border.radius};
     box-shadow: ${theme.box.shadow};
@@ -36,5 +36,9 @@ export const InfoItem = styled.p`
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+
+    &:last-child {
+      margin-bottom: ${theme.spacings.xsmall};
+    }
   `}
 `;
