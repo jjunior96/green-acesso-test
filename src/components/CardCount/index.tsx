@@ -1,9 +1,13 @@
 import * as S from './styles';
 
-const CardCount = () => {
+interface CardCountProps {
+  total: number;
+}
+
+const CardCount = ({ total }: CardCountProps) => {
   return (
-    <S.Container>
-      <S.Info>1 de 1.045 pessoas</S.Info>
+    <S.Container aria-label="total de resultados">
+      <S.Info>1 de {total} repositórios</S.Info>
     </S.Container>
   );
 };
