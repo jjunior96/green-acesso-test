@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { Form } from '@unform/web';
 
 export const Container = styled.div`
@@ -46,5 +46,31 @@ export const Notifications = styled.section`
     width: 100%;
     max-width: 28rem;
     gap: ${theme.spacings.medium};
+  `}
+`;
+
+const loadingAnimation = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+export const Loading = styled.div`
+  align-items: center;
+  margin: 0 auto;
+  font-size: 4rem;
+
+  animation: ${loadingAnimation} 3s linear infinite;
+`;
+
+export const Error = styled.div`
+  ${({ theme }) => css`
+    margin: 0 auto;
+    color: ${theme.colors.mediumGray};
+    font-size: ${theme.font.sizes.medium};
   `}
 `;
