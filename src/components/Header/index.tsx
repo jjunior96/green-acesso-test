@@ -6,7 +6,7 @@ import * as S from './styles';
 const Header: React.FC = ({ children }) => {
   const state = useSelector((state) => state);
 
-  console.log(state);
+  // console.log(state);
 
   return (
     <S.Container aria-label="header">

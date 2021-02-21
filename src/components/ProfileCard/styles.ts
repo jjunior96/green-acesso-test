@@ -11,6 +11,11 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media (max-width: 1500px) {
+      display: none;
+      visibility: hidden;
+    }
   `}
 `;
 
@@ -54,14 +59,12 @@ export const Content = styled.div`
 `;
 
 export const ProfilePhoto = styled.div`
-  ${({ theme }) => css`
-    border-radius: ${theme.border.radius};
-    overflow: hidden;
-    cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
 
-    img {
-      width: 4.4rem;
-      height: 4.4rem;
-    }
-  `}
+  img {
+    width: 4.4rem;
+    height: 4.4rem;
+  }
 `;
