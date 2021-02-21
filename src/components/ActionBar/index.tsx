@@ -1,36 +1,17 @@
-import {
-  RiAddCircleLine,
-  RiEditCircleLine,
-  RiDeleteBin6Line
-} from 'react-icons/ri';
-import { MdFingerprint, MdUpdate } from 'react-icons/md';
+import { ActionBarData } from './data';
 
 import * as S from './styles';
 
 const ActionBar = () => {
   return (
-    <S.Container>
+    <S.Container aria-label="barra de acoes">
       <S.ActionContainer>
-        <S.ActionItem aria-label="adicionar">
-          <RiAddCircleLine />
-          <p>Adicionar</p>
-        </S.ActionItem>
-        <S.ActionItem>
-          <RiEditCircleLine />
-          <p>Editar</p>
-        </S.ActionItem>
-        <S.ActionItem>
-          <MdFingerprint />
-          <p>Biometria</p>
-        </S.ActionItem>
-        <S.ActionItem>
-          <RiDeleteBin6Line />
-          <p>Deletar</p>
-        </S.ActionItem>
-        <S.ActionItem>
-          <MdUpdate />
-          <p>Atualizar</p>
-        </S.ActionItem>
+        {ActionBarData.map((item) => (
+          <S.ActionItem key={item.id} aria-label={item.name}>
+            {item.icon}
+            {item.name}
+          </S.ActionItem>
+        ))}
       </S.ActionContainer>
     </S.Container>
   );

@@ -6,8 +6,15 @@ describe('ActionBar', () => {
   it('should render ActionBar component', () => {
     renderWithTheme(<ActionBar />);
 
+    expect(screen.getByLabelText(/barra de acoes/i)).toHaveStyle({
+      overflow: 'auto',
+      'background-color': '#fff'
+    });
+
     expect(screen.getByLabelText(/adicionar/i)).toHaveStyle({
-      width: '10rem'
+      width: '10rem',
+      height: '100%',
+      cursor: 'pointer'
     });
   });
 });

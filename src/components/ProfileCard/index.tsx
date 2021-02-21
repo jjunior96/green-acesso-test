@@ -7,7 +7,7 @@ import * as S from './styles';
 
 const ProfileCard = () => {
   return (
-    <S.Container>
+    <S.Container aria-label="profile card">
       <S.Content>
         <S.ProfilePhoto>
           <img src="/assets/profile.png" alt="Foto de perfil" />
