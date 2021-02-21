@@ -4,11 +4,6 @@ import { BiLineChart, BiMessage, BiHelpCircle } from 'react-icons/bi';
 import { AiFillSetting } from 'react-icons/ai';
 import { RiLogoutBoxRLine } from 'react-icons/ri';
 
-export interface SideBarProps {
-  title: string;
-  path: string;
-}
-
 export const SidebarData = [
   {
     id: '1',

@@ -7,7 +7,10 @@ describe('Header', () => {
     renderWithTheme(<Header />);
 
     expect(screen.getByLabelText(/header/i)).toHaveStyle({
-      display: 'flex'
+      display: 'flex',
+      'justify-content': 'space-between',
+      'align-items': 'center',
+      width: '100%'
     });
   });
 });

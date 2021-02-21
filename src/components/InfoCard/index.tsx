@@ -8,7 +8,7 @@ interface CardInfoProps {
 
 const CardInfo: React.FC<CardInfoProps> = ({ color = 'secundaryTitle' }) => {
   return (
-    <S.Container>
+    <S.Container aria-label="info card">
       {CardInfoData.map((info) => (
         <S.Content key={info.id}>
           <S.Title color={color} aria-label="esporádicos">

@@ -49,9 +49,8 @@ export const ActionItem = styled.li`
     }
 
     &:hover {
-      p {
-        color: ${theme.colors.white};
-      }
+      color: ${theme.colors.white};
+
       svg {
         color: ${theme.colors.white};
       }

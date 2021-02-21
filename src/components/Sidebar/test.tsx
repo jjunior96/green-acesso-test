@@ -7,7 +7,8 @@ describe('Sidebar', () => {
     renderWithTheme(<Sidebar />);
 
     expect(screen.getByLabelText(/sidebar/i)).toHaveStyle({
-      width: '24rem'
+      width: '24rem',
+      'background-color': '#15bf52'
     });
   });
 });
