@@ -9,6 +9,7 @@ export const Container = styled.section`
     box-shadow: ${theme.box.shadow};
     margin-bottom: ${theme.spacings.xsmall};
     overflow: auto;
+    white-space: nowrap;
     max-height: calc(100vh - 38rem);
 
     &::-webkit-scrollbar {
@@ -25,6 +26,7 @@ export const Line = styled.div`
     display: flex;
     padding: ${theme.spacings.xsmall};
     transition: background-color 0.4s;
+    text-align: left;
 
     p {
       line-height: 2rem;
@@ -43,13 +45,13 @@ export const Line = styled.div`
   `}
 `;
 
-export const Place = styled.p`
+export const FirstDataTable = styled.p`
   ${({ theme }) => css`
     line-height: 2rem;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    flex: 40%;
+    flex: 25%;
 
     & + p {
       margin-left: ${theme.spacings.small};
@@ -60,18 +62,7 @@ export const Place = styled.p`
   `}
 `;
 
-export const Code = styled(Place)`
+export const DataTable = styled(FirstDataTable)`
   flex: 15%;
-`;
-
-export const Phone = styled(Place)`
-  flex: 15%;
-`;
-
-export const Email = styled(Place)`
-  flex: 15%;
-`;
-
-export const Address = styled(Place)`
-  flex: 15%;
+  text-align: left;
 `;

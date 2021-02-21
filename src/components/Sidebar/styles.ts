@@ -44,17 +44,16 @@ const menuAnimationOpen = keyframes`
 export const Container = styled.aside`
   ${({ theme }) => css`
     background-color: ${theme.colors.primary};
+    width: ${theme.grid.sidebar};
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    justify-content: space-between;
   `}
-
-  width: 24rem;
-  height: 100vh;
-  position: fixed;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  justify-content: space-between;
 `;
 
 export const Content = styled.div``;
@@ -153,6 +152,7 @@ export const Logo = styled.div`
       text-decoration: none;
 
       img {
+        width: 28px;
         height: 34px;
 
         animation: ${logoAnimation} 1s;

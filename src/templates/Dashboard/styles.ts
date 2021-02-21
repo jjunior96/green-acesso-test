@@ -1,5 +1,6 @@
 import styled, { css, keyframes } from 'styled-components';
 import { Form } from '@unform/web';
+import { shade } from 'polished';
 
 const loadingAnimation = keyframes`
   from {
@@ -77,4 +78,69 @@ export const Error = styled.div`
     color: ${theme.colors.mediumGray};
     font-size: ${theme.font.sizes.medium};
   `}
+`;
+
+// TABLE =======================================
+export const TableContainer = styled.section`
+  ${({ theme }) => css`
+    width: 100%;
+    background-color: ${theme.colors.white};
+    border-radius: ${theme.border.radius};
+    box-shadow: ${theme.box.shadow};
+    margin-bottom: ${theme.spacings.xsmall};
+    overflow: auto;
+    white-space: nowrap;
+    max-height: calc(100vh - 38rem);
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  `}
+`;
+
+export const TableLine = styled.div`
+  ${({ theme }) => css`
+    width: 100%;
+    padding: ${theme.spacings.xxsmall};
+
+    display: flex;
+    padding: ${theme.spacings.xsmall};
+    transition: background-color 0.4s;
+
+    p {
+      line-height: 2rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    &:hover {
+      background-color: ${shade(0.1, theme.colors.white)};
+    }
+
+    & + div {
+      border-top: 1px solid ${theme.colors.lightGray};
+    }
+  `}
+`;
+
+export const FirstData = styled.p`
+  ${({ theme }) => css`
+    line-height: 2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 40%;
+
+    & + p {
+      margin-left: ${theme.spacings.small};
+    }
+
+    color: ${theme.colors.darkText};
+    font-size: ${theme.font.sizes.small};
+  `}
+`;
+
+export const Data = styled(FirstData)`
+  flex: 15%;
 `;

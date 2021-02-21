@@ -1,10 +1,10 @@
 import { screen } from '@testing-library/react';
 import { renderWithTheme } from 'utils/tests/helpers';
-import CardInfo from '.';
+import InfoCard from '.';
 
-describe('CardInfo', () => {
-  it('should render CardInfo component', () => {
-    renderWithTheme(<CardInfo />);
+describe('InfoCard', () => {
+  it('should render InfoCard component', () => {
+    renderWithTheme(<InfoCard />);
 
     expect(screen.getByLabelText(/esporádicos/i)).toHaveStyle({
       color: '#eea258'

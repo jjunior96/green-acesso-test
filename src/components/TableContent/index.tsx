@@ -1,4 +1,4 @@
-import CardCount from 'components/CardCount';
+import CardCount from 'components/ResultCardTable';
 
 import * as S from './styles';
 
@@ -6,12 +6,12 @@ export interface InfoProps {
   id: number;
   login: string;
   node_id: string;
-  type: string;
+  avatar_url: string;
   html_url: string;
   url: string;
 }
 
-interface TableProps {
+export interface TableProps {
   info: InfoProps[];
 }
 
@@ -19,13 +19,13 @@ const TableContent: React.FC<TableProps> = ({ info }) => {
   return (
     <>
       <S.Container aria-label="resultados da busca">
-        {info.map((item) => (
-          <S.Line key={item.id}>
-            <S.Place>{item.login}</S.Place>
-            <S.Code>{item.node_id}</S.Code>
-            <S.Phone>{item.type}</S.Phone>
-            <S.Email>{item.url}</S.Email>
-            <S.Address>{item.html_url}</S.Address>
+        {info.map((item, index) => (
+          <S.Line key={index}>
+            <S.FirstDataTable>{item.login}</S.FirstDataTable>
+            <S.DataTable>{item.node_id}</S.DataTable>
+            <S.DataTable>{item.avatar_url}</S.DataTable>
+            <S.DataTable>{item.url}</S.DataTable>
+            <S.DataTable>{item.html_url}</S.DataTable>
           </S.Line>
         ))}
       </S.Container>
