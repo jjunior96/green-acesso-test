@@ -55,15 +55,13 @@ export const Content = styled.div`
 
 export const ProfilePhoto = styled.div`
   ${({ theme }) => css`
-    width: 4.4rem;
-    height: 4.4rem;
     border-radius: ${theme.border.radius};
     overflow: hidden;
     cursor: pointer;
 
     img {
-      width: 100%;
-      height: 100%;
+      width: 4.4rem;
+      height: 4.4rem;
     }
   `}
 `;

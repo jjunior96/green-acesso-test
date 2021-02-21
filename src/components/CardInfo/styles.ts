@@ -15,10 +15,10 @@ export const Content = styled.div`
 `;
 
 export const Title = styled.h2`
-  ${({ theme, color }) => css`
+  ${({ theme }) => css`
     font-size: ${theme.font.sizes.medium};
     font-weight: ${theme.font.bold};
-    color: ${theme.colors[color!]};
+    color: ${theme.colors.primaryTitle};
     margin-bottom: ${theme.spacings.xxsmall};
     text-transform: uppercase;
 
