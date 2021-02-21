@@ -152,8 +152,8 @@ export const Logo = styled.div`
       text-decoration: none;
 
       img {
-        width: 28px;
-        height: 34px;
+        width: 40px;
+        height: 40px;
 
         animation: ${logoAnimation} 1s;
       }
