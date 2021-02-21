@@ -19,8 +19,8 @@ const TableContent: React.FC<TableProps> = ({ info }) => {
   return (
     <>
       <S.Container aria-label="resultados da busca">
-        {info.map((item) => (
-          <S.Line key={item.id}>
+        {info.map((item, index) => (
+          <S.Line key={index}>
             <S.Place>{item.login}</S.Place>
             <S.Code>{item.node_id}</S.Code>
             <S.Phone>{item.type}</S.Phone>
