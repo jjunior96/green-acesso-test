@@ -11,7 +11,7 @@ export interface InfoProps {
   url: string;
 }
 
-interface TableProps {
+export interface TableProps {
   info: InfoProps[];
 }
 

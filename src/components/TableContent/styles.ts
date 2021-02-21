@@ -9,6 +9,7 @@ export const Container = styled.section`
     box-shadow: ${theme.box.shadow};
     margin-bottom: ${theme.spacings.xsmall};
     overflow: auto;
+    white-space: nowrap;
     max-height: calc(100vh - 38rem);
 
     &::-webkit-scrollbar {
