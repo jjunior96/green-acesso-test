@@ -18,20 +18,25 @@ const Sidebar = () => {
         <S.Logo>
           <Link href="/">
             <a>
-              <Image src="/assets/logo.png" width={100} height={100} />
+              <Image
+                src="/assets/logo.png"
+                width={100}
+                height={100}
+                alt="Logo"
+              />
               <p>Green Acesso</p>
             </a>
           </Link>
         </S.Logo>
         <S.MenuContainer>
-          {SidebarData.map((item) => (
+          {SidebarData.map((item, index) => (
             <>
-              <S.MenuTitle key={item.id} onClick={handleOpenMenu}>
+              <S.MenuTitle key={index} onClick={handleOpenMenu}>
                 {item.icon}
                 {item.name}
               </S.MenuTitle>
               {item.children?.map((subItem) => (
-                <S.MenuItem isOpen={menuOpen} key={subItem.id}>
+                <S.MenuItem isOpen={menuOpen} key={subItem.path}>
                   <Link href={subItem.path}>
                     <a>
                       <p> - {subItem.title}</p>
