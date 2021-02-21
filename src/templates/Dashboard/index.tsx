@@ -11,7 +11,7 @@ import CardInfo from 'components/CardInfo';
 import ActionBar from 'components/ActionBar';
 import ProfileCard from 'components/ProfileCard';
 import Header from 'components/Header';
-import Table, { InfoProps } from 'components/TableContent';
+import TableContent, { InfoProps } from 'components/TableContent';
 import api from 'services/api';
 
 import * as S from './styles';
@@ -53,7 +53,9 @@ const Dashboard: React.FC = () => {
   useEffect(() => {
     setIsLoading(true);
 
-    api.get(`/users`).then((response) => setRepositories([response.data]));
+    api
+      .get<InfoProps[]>(`/users`)
+      .then((response) => setRepositories(response.data));
 
     setIsLoading(false);
   }, []);
@@ -86,9 +88,7 @@ const Dashboard: React.FC = () => {
                 <LoadingIcon />
               </S.Loading>
             ) : (
-              repositories.map((repository) => (
-                <Table key={repository.id} info={repository} />
-              ))
+              <TableContent info={repositories} />
             )}
           </S.PrimaryInfo>
           <S.Notifications>
