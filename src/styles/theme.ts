@@ -1,10 +1,11 @@
 export default {
   grid: {
-    container: '140rem',
+    container: '120rem',
+    sidebar: '24rem',
     gutter: '3.2rem'
   },
   border: {
-    radius: '1.2rem'
+    radius: '2rem'
   },
   box: {
     shadow: '0 8px 8px #eee'
