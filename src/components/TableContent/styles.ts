@@ -3,7 +3,6 @@ import { shade } from 'polished';
 
 export const Container = styled.section`
   ${({ theme }) => css`
-    width: 100%;
     background-color: ${theme.colors.white};
     border-radius: ${theme.border.radius};
     box-shadow: ${theme.box.shadow};
@@ -11,6 +10,9 @@ export const Container = styled.section`
     overflow: auto;
     white-space: nowrap;
     max-height: calc(100vh - 38rem);
+
+    width: 100%;
+    /* max-width: 800px; */
 
     &::-webkit-scrollbar {
       display: none;
