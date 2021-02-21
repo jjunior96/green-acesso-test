@@ -7,6 +7,13 @@ const Title = styled.h1`
     max-width: 680px;
     color: ${theme.colors.darkText};
     margin: ${theme.spacings.medium} 0;
+    display: flex;
+    align-items: center;
+
+    span {
+      display: flex;
+      align-items: center;
+    }
   `}
 `;
 

@@ -8,12 +8,12 @@ export const Container = styled.header`
 `;
 
 export const Content = styled.div`
-  width: 100%;
-  max-width: 20rem;
+  max-width: 100%;
 `;
 
 export const Info = styled.p`
   ${({ theme }) => css`
+    width: 100%;
     font-size: ${theme.font.sizes.small};
     color: ${theme.colors.mediumGray};
 

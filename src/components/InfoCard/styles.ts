@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
@@ -11,7 +10,7 @@ export const Container = styled.div`
   `}
 
   @media (max-width: 1500px) {
-    max-width: 28rem;
+    width: 28rem;
   }
 `;
 
