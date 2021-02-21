@@ -1,6 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
 import { Form } from '@unform/web';
-import { shade } from 'polished';
 
 const loadingAnimation = keyframes`
   from {
@@ -12,25 +11,74 @@ const loadingAnimation = keyframes`
   }
 `;
 
-export const Container = styled.div`
-  width: 100%;
-  display: flex;
-`;
-
-export const Content = styled.section`
+export const ContainerDashboard = styled.div`
   ${({ theme }) => css`
-    width: 100%;
-    max-width: ${theme.grid.container};
+    border-radius: 40px 0 0 40px;
+    margin-left: ${theme.grid.sidebar};
+    height: 100vh;
+    max-width: 100%;
+
+    background-color: ${theme.colors.secondary};
+    padding: ${theme.spacings.medium};
     display: flex;
-    margin: 0 auto;
+
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   `}
 `;
 
-export const PrimaryInfo = styled.div`
-  width: 100%;
+export const ContentDashboard = styled.div`
   display: flex;
-  flex-direction: column;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
+  height: 100%;
+
+  @media (max-width: 1500px) {
+    flex-direction: column;
+  }
+`;
+
+export const ContentPrimary = styled.section`
+  width: 100%;
+  max-width: 900px;
+
+  @media (max-width: 1500px) {
+    max-width: 100%;
+  }
+`;
+
+export const Notifications = styled.section`
+  ${({ theme }) => css`
+    width: 100%;
+    max-width: 280px;
+
+    display: flex;
+    flex-direction: column;
+    margin-left: ${theme.spacings.medium};
+    margin-top: ${theme.spacings.medium};
+    gap: ${theme.spacings.medium};
+
+    @media (max-width: 1500px) {
+      margin: 0;
+      margin-bottom: ${theme.spacings.medium};
+      flex-direction: row;
+    }
+
+    @media (max-width: 880px) {
+      display: none;
+    }
+  `}
+`;
+
+export const Line = styled.div`
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const FormContainer = styled(Form)`
@@ -42,31 +90,17 @@ export const FormContainer = styled(Form)`
     }
 
     button {
-      width: 6rem;
+      width: 100%;
+      max-width: 6rem;
       margin-left: ${theme.spacings.xsmall};
     }
   `}
 `;
 
-export const Notifications = styled.section`
-  ${({ theme }) => css`
-    display: flex;
-    flex-direction: column;
-    margin-left: ${theme.spacings.medium};
-    margin-top: ${theme.spacings.medium};
-    width: 100%;
-    max-width: 28rem;
-    gap: ${theme.spacings.medium};
-  `}
-
-  @media (max-width: 1200px) {
-    display: none;
-  }
-`;
-
 export const Loading = styled.div`
+  display: flex;
   align-items: center;
-  margin: 0 auto;
+  justify-content: center;
   font-size: 4rem;
 
   animation: ${loadingAnimation} 3s linear infinite;
@@ -74,73 +108,11 @@ export const Loading = styled.div`
 
 export const Error = styled.div`
   ${({ theme }) => css`
-    margin: 0 auto;
-    color: ${theme.colors.mediumGray};
-    font-size: ${theme.font.sizes.medium};
-  `}
-`;
-
-// TABLE =======================================
-export const TableContainer = styled.section`
-  ${({ theme }) => css`
-    width: 100%;
-    background-color: ${theme.colors.white};
-    border-radius: ${theme.border.radius};
-    box-shadow: ${theme.box.shadow};
-    margin-bottom: ${theme.spacings.xsmall};
-    overflow: auto;
-    white-space: nowrap;
-    max-height: calc(100vh - 38rem);
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  `}
-`;
-
-export const TableLine = styled.div`
-  ${({ theme }) => css`
-    width: 100%;
-    padding: ${theme.spacings.xxsmall};
-
     display: flex;
-    padding: ${theme.spacings.xsmall};
-    transition: background-color 0.4s;
-
-    p {
-      line-height: 2rem;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    &:hover {
-      background-color: ${shade(0.1, theme.colors.white)};
-    }
-
-    & + div {
-      border-top: 1px solid ${theme.colors.lightGray};
-    }
+    margin: 0 auto;
+    color: #ff4f3f;
+    font-size: ${theme.font.sizes.medium};
+    justify-content: center;
+    align-items: center;
   `}
-`;
-
-export const FirstData = styled.p`
-  ${({ theme }) => css`
-    line-height: 2rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    flex: 40%;
-
-    & + p {
-      margin-left: ${theme.spacings.small};
-    }
-
-    color: ${theme.colors.darkText};
-    font-size: ${theme.font.sizes.small};
-  `}
-`;
-
-export const Data = styled(FirstData)`
-  flex: 15%;
 `;

@@ -1,8 +1,8 @@
 import { FormEvent, useCallback, useEffect, useRef, useState } from 'react';
 import { FormHandles } from '@unform/core';
-import { useDispatch } from 'react-redux';
 import { BiSearch as SearchIcon } from 'react-icons/bi';
 import { VscLoading as LoadingIcon } from 'react-icons/vsc';
+import { MdKeyboardArrowRight as Arrow } from 'react-icons/md';
 
 import Sidebar from 'components/Sidebar';
 import Input from 'components/Input';
@@ -14,8 +14,6 @@ import Header from 'components/Header';
 import TableContent, { InfoProps } from 'components/TableContent';
 import Main from 'components/Main';
 
-import { addNameToUser } from 'store/modules/user/actions';
-
 import api from 'services/api';
 
 import * as S from './styles';
@@ -26,11 +24,6 @@ const Dashboard: React.FC = () => {
   const [repositories, setRepositories] = useState<InfoProps[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [inputError, setInputError] = useState('');
-  const dispatch = useDispatch();
-
-  const handleAddNameToUser = useCallback(() => {
-    dispatch(addNameToUser);
-  }, [dispatch]);
 
   const handleSubmit = useCallback(
     async (event: FormEvent<HTMLFormElement>) => {
@@ -49,7 +42,6 @@ const Dashboard: React.FC = () => {
         const repository = response.data;
 
         setRepositories(repository);
-        // handleAddNameToUser(repository[0].login);
 
         setIsLoading(false);
       } catch (err) {
@@ -77,7 +69,14 @@ const Dashboard: React.FC = () => {
         <Main>
           <S.ContentDashboard>
             <S.ContentPrimary>
-              <Header> Cadastro -{'>'} Pessoas </Header>
+              <Header>
+                {' '}
+                Cadastro{' '}
+                <span>
+                  <Arrow />
+                </span>{' '}
+                Pessoas{' '}
+              </Header>
               <S.FormContainer onSubmit={handleSubmit} ref={formRef}>
                 <Input
                   name="search"
@@ -112,7 +111,7 @@ const Dashboard: React.FC = () => {
             <S.Notifications>
               <ProfileCard />
               <InfoCard color="secundaryTitle" />
-              {/* <InfoCard color="otherTitle" /> */}
+              <InfoCard color="otherTitle" />
             </S.Notifications>
           </S.ContentDashboard>
         </Main>
