@@ -2,12 +2,10 @@ import styled, { css } from 'styled-components';
 
 interface ContainerProps {
   isFocused: boolean;
-  isFilled: boolean;
-  isErrored: boolean;
 }
 
 export const Container = styled.div<ContainerProps>`
-  ${({ theme }) => css`
+  ${({ theme, isFocused }) => css`
     background: ${theme.colors.white};
     border-radius: 8px;
     padding: 1.6rem 2.6rem;
@@ -16,8 +14,14 @@ export const Container = styled.div<ContainerProps>`
     display: flex;
     align-items: center;
     height: 56px;
+    border: 2px solid ${theme.colors.white};
 
-    color: #525c6d;
+    color: ${theme.colors.mediumGray};
+
+    ${isFocused &&
+    css`
+      border-color: ${theme.colors.buttonSearch};
+    `}
 
     input {
       color: ${theme.colors.black};
@@ -42,26 +46,6 @@ export const Container = styled.div<ContainerProps>`
 
     svg {
       margin-right: ${theme.spacings.xsmall};
-    }
-  `}
-`;
-
-export const Error = styled.div`
-  ${({ theme }) => css`
-    height: 2rem;
-    margin-left: ${theme.spacings.xsmall};
-
-    svg {
-      margin: 0;
-    }
-
-    span {
-      background-color: #c53030;
-      color: ${theme.colors.white};
-
-      &::before {
-        border-color: #c53030 transparent;
-      }
     }
   `}
 `;
