@@ -17,6 +17,7 @@
 - [Sobre](#about)
 - [Iniciando](#getting_started)
 - [Testes](#tests)
+- [Documentação](#doc)
 - [Uso](#usage)
 - [Construído utilizando](#built_using)
 - [Authors](#authors)
@@ -69,6 +70,17 @@ yarn test
 Para essa aplicação, implementei o seguinte teste:
 
 - **`should render [Component] component`**
+
+## 📄 Documentação <a name = "doc"></a>
+
+Criei a documentação dos componentes utilizando o [Storybook](https://storybook.js.org/), uma lib para a criação de UI à prova de bala (segundo o próprio site). Através do storybook, podemos visualizar a testar os componentes da nossa aplicação (seja React, Vue ou Angular) de forma isolada.
+
+### Executar o storybook
+
+```sh
+yarn storybook
+```
+
 
 
 ## ⛏️ Construído utilizando <a name = "built_using"></a>
