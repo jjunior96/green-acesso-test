@@ -1,13 +1,10 @@
 import { createStore } from 'redux';
-import rootReducer from './modules/rootReducer';
-import { IUserState } from './modules/user/types';
 
-export interface UserProps {
-  name: string;
-}
+import rootReducer from './modules/rootReducer';
+import { IUser } from './modules/user/types';
 
 export interface IState {
-  user: IUserState;
+  user: IUser;
 }
 
 export const store = createStore(rootReducer);

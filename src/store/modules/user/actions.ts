@@ -1,8 +1,10 @@
-export function addNameToUser(name: string) {
+import { IUser } from './types';
+
+export function loginOnApp(user: IUser) {
   return {
-    type: 'ADD_NAME_TO_USER',
+    type: 'LOGIN_ON_APP',
     payload: {
-      name
+      user
     }
   };
 }

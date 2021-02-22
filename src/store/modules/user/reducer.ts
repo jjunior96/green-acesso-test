@@ -1,24 +1,27 @@
 import { Reducer } from 'redux';
-import { IUserState } from './types';
+import produce from 'immer';
+import { IUser } from './types';
 
-const INITIAL_STATE: IUserState = {
-  name: 'Soon Sam'
+const INITIAL_STATE: IUser = {
+  id: 1,
+  name: 'Soon Sam',
+  login: 'soonsam'
 };
 
-const user: Reducer<IUserState> = (state = INITIAL_STATE, action) => {
-  switch (action.type) {
-    case 'ADD_NAME_TO_USER': {
-      const { name } = action.payload;
+const user: Reducer<IUser> = (state = INITIAL_STATE, action) => {
+  return produce(state, (draft) => {
+    switch (action.type) {
+      case 'LOGIN_ON_APP': {
+        const result = draft;
 
-      return {
-        name: name
-      };
-    }
+        return result;
+      }
 
-    default: {
-      return state;
+      default: {
+        return draft;
+      }
     }
-  }
+  });
 };
 
 export default user;
