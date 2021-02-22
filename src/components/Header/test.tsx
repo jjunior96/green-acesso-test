@@ -4,7 +4,7 @@ import Header from '.';
 
 describe('Header', () => {
   it('should render Header component', () => {
-    renderWithTheme(<Header />);
+    renderWithTheme(<Header name="name" />);
 
     expect(screen.getByLabelText(/header/i)).toHaveStyle({
       display: 'flex',
