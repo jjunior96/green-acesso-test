@@ -5,8 +5,7 @@
   "author": "Junior Alves <jjalves96@gmail.com>",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "start": "next build && next start",
     "test": "jest",
     "lint": "eslint src",
     "test:watch": "yarn test --watch",
@@ -29,6 +28,7 @@
     "@unform/core": "^2.1.3",
     "@unform/web": "^2.1.3",
     "axios": "^0.21.1",
+    "immer": "^8.0.1",
     "next": "10.0.7",
     "next-pwa": "^5.0.2",
     "next-redux-wrapper": "^6.0.2",
@@ -37,11 +37,8 @@
     "react-dom": "17.0.1",
     "react-icons": "^4.2.0",
     "react-redux": "^7.2.2",
-    "react-spring": "^8.0.27",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0",
-    "styled-components": "5.2.1",
-    "yup": "^0.32.9"
+    "styled-components": "5.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
