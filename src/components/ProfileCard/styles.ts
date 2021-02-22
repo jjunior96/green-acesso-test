@@ -24,13 +24,14 @@ export const Content = styled.div`
     display: flex;
     align-items: center;
 
-    a {
+    button {
+      border: 0;
       margin-left: ${theme.spacings.xsmall};
       font-size: ${theme.font.sizes.small};
       text-decoration: none;
       color: ${theme.colors.mediumGray};
       transition: color 0.4s, background-color 0.4s;
-      padding: 0.3rem;
+      padding: 0.3rem 0.6rem;
       border-radius: 4px;
 
       &:hover {
@@ -59,12 +60,16 @@ export const Content = styled.div`
 `;
 
 export const ProfilePhoto = styled.div`
-  border-radius: 12px;
-  overflow: hidden;
-  cursor: pointer;
+  ${({ theme }) => css`
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: ${theme.colors.secondary};
 
-  img {
-    width: 4.4rem;
-    height: 4.4rem;
-  }
+    img {
+      width: 4.4rem;
+      height: 4.4rem;
+      object-fit: cover;
+    }
+  `}
 `;

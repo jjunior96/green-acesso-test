@@ -1,4 +1,5 @@
 import { FormEvent, useCallback, useEffect, useRef, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { FormHandles } from '@unform/core';
 import { BiSearch as SearchIcon } from 'react-icons/bi';
 import { VscLoading as LoadingIcon } from 'react-icons/vsc';
@@ -14,11 +15,14 @@ import Header from 'components/Header';
 import TableContent, { InfoProps } from 'components/TableContent';
 import Main from 'components/Main';
 
+import { IState } from 'store';
+import { IUser } from 'store/modules/user/types';
 import api from 'services/api';
 
 import * as S from './styles';
 
 const Dashboard: React.FC = () => {
+  const user = useSelector<IState, IUser>((state) => state.user);
   const formRef = useRef<FormHandles>(null);
   const [search, setSearch] = useState('');
   const [repositories, setRepositories] = useState<InfoProps[]>([]);
@@ -69,7 +73,7 @@ const Dashboard: React.FC = () => {
         <Main>
           <S.ContentDashboard>
             <S.ContentPrimary>
-              <Header>
+              <Header name={user.name}>
                 {' '}
                 Cadastro{' '}
                 <span>

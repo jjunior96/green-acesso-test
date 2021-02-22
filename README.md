@@ -25,13 +25,13 @@
 
 ## 🧐 Sobre <a name = "about"></a>
 
-Link de apresentação da aplicação, [aqui]().
-
 ### 🎈 Frontend
 
 O projeto foi contruído utilizando Next.js, experiência de grande aprendizado. Fiz uma task-list com cards especificando o que eu teria que fazer, me ajudou muito. Assim, divido os problemas maiores em menores e as suas resoluções ficam mais claras.
 
 Grande parte do desafio para mim foi trabalhar com Redux, pois tive um curto contato com ele no meu último trabalho, pois estavamos utilizando bastante a ContextAPI para gerenciar os estuados. Com isso, pesquisei bastante e aprendi muitos conceitos novos do Redux, que com certeza vou me aprofundar mais, pois curti bastante o que aprendi.
+
+OBS.: Eu recriei a logo para a aplicação, portanto as cores e o design não são exatamente como o original. Fiz por gostar de brincar com Photoshop (haha).
 
 Criado seguindo os  requisitos baseados no desafio da [Green Acesso](https://github.com/jjunior96/green-acesso-test/files/6017795/Front-end.Teste.pdf).
 
@@ -58,7 +58,11 @@ Executar na raiz do projeto o seguinte comando para instalar as dependências `y
 ```sh
 yarn dev
 ```
+Como especificado no desafio da [Green Acesso](https://github.com/jjunior96/green-acesso-test/files/6017795/Front-end.Teste.pdf), criei um script para gerar a build e depois levantar o servidor localmente. Para isso, rode o comando abaixo e abra em seu browser, acesse `localhost:3000`.
 
+```sh
+yarn start
+```
 
 ## 🔧 Executando os testes <a name = "tests"></a>
 
@@ -96,13 +100,17 @@ yarn storybook
 - [Styled Components](https://styled-components.com/)
 - [Axios](https://github.com/axios/axios)
 - [Next](https://nextjs.org/)
+- [Redux](https://redux.js.org/)
 
 
 ## Deploy <a name = "deploy"></a>
 
 Eu fiz o deploy utilizando o sistema da Vercel (empresa por trás do Next.js), mas poderia ser feito por qualquer outro serviço.
 
-Clique [aqui](https://green-acesso.vercel.app/) para ver a Demo do sistema.
+Clique [aqui](https://green-acesso.vercel.app/) para ver a Demo do sistema. O projeto é PWA.
+
+[![PWA](https://user-images.githubusercontent.com/30422190/108641830-3e9c5200-7480-11eb-8118-abbc50479092.png)]()
+
 
 ## ✍️ Authors <a name = "authors"></a>
 
