@@ -58,7 +58,7 @@ Executar na raiz do projeto o seguinte comando para instalar as dependências `y
 ```sh
 yarn dev
 ```
-Como especificado no desafio da [Green Acesso](https://github.com/jjunior96/green-acesso-test/files/6017795/Front-end.Teste.pdf), criei um script para gerar a build e depois levantar o servidor localmente. Para isso, rode o comando abaixo e abra em seu browser, acesse `localhost:3000`.
+Como especificado no desafio da [Green Acesso](https://github.com/jjunior96/green-acesso-test/files/6017795/Front-end.Teste.pdf), criei um script para gerar a build e depois levantar o servidor localmente. Para isso, rode o comando abaixo e abra o seu browser no endereço `localhost:3000`.
 
 ```sh
 yarn start
